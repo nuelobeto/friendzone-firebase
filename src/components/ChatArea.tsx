@@ -212,8 +212,7 @@ const ChatAreaWrapper = styled.div<any>`
 `;
 
 const Topbar = styled.div`
-  height: 8vh;
-  min-height: 8vh;
+  height: 63.11px;
   width: 100%;
   border-bottom: 2px solid #e7ebec;
   background-color: #f8f7f7;
@@ -284,8 +283,7 @@ const Messages = styled.div`
 `;
 
 const SendMessage = styled.form`
-  height: 8vh;
-  min-height: 8vh;
+  height: 63.11px;
   width: 100%;
   padding: 0.75rem 1rem;
   display: flex;

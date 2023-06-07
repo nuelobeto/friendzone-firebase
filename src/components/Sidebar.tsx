@@ -254,8 +254,7 @@ const Topbar = styled.div`
 `;
 
 const Search = styled.div`
-  min-height: 8vh;
-  height: 8vh;
+  height: 63.11px;
   width: 100%;
   padding: 0.75rem 1rem;
   display: flex;
