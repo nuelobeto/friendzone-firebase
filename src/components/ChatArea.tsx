@@ -213,7 +213,7 @@ const ChatAreaWrapper = styled.div<any>`
 `;
 
 const Topbar = styled.div`
-  height: 8vh;
+  height: 63.11px;
   width: 100%;
   border-bottom: 2px solid #e7ebec;
   background-color: #f8f7f7;
@@ -247,7 +247,7 @@ const Topbar = styled.div`
 
 const Messages = styled.div`
   width: 100%;
-  height: calc(100% - 16vh);
+  height: calc(100% - 126.22px);
   background: linear-gradient(88.16deg, #d8d8d8 23.58%, #cccbcb 96.8%),
     url("/images/chat-bg.jpg");
   background-blend-mode: multiply;
@@ -258,7 +258,7 @@ const Messages = styled.div`
   flex-direction: column;
   gap: 0.5rem;
   overflow: auto;
-  margin-top: 8vh;
+  margin-top: 63.11px;
 
   .message {
     max-width: 90%;
@@ -288,7 +288,7 @@ const Messages = styled.div`
 `;
 
 const SendMessage = styled.form`
-  height: 8vh;
+  height: 63.11px;
   width: 100%;
   padding: 0.75rem 1rem;
   display: flex;

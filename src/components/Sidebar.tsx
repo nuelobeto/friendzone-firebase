@@ -238,7 +238,7 @@ const SidebarWrapper = styled.div`
 `;
 
 const Topbar = styled.div`
-  height: 8vh;
+  height: 63.11px;
   width: 100%;
   border-bottom: 2px solid #e7ebec;
   display: flex;
@@ -258,12 +258,12 @@ const Topbar = styled.div`
 `;
 
 const Search = styled.div`
-  height: 8vh;
+  height: 63.11px;
   width: 100%;
   padding: 0.75rem 1rem;
   display: flex;
   align-items: center;
-  margin-top: 8vh;
+  margin-top: 63.11px;
 
   & > div {
     display: flex;
@@ -295,7 +295,7 @@ const Search = styled.div`
 
 const Chats = styled.div`
   width: 100%;
-  height: calc(100% - 16vh);
+  height: calc(100% - 126.22px);
   overflow: auto;
   padding: 1rem;
 
