@@ -273,7 +273,7 @@ const Search = styled.div`
 
     input {
       flex: 1;
-      height: 100%;
+      height: 36px;
       border: none;
       outline: none;
       font-size: 15px;
