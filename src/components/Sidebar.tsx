@@ -225,6 +225,7 @@ const SidebarWrapper = styled.div`
   width: 35%;
   height: 100%;
   border-right: 2px solid #e7ebec;
+  position: relative;
 
   @media (max-width: 900px) {
     width: 350px;
@@ -237,7 +238,7 @@ const SidebarWrapper = styled.div`
 `;
 
 const Topbar = styled.div`
-  height: 63.11px;
+  height: 8vh;
   width: 100%;
   border-bottom: 2px solid #e7ebec;
   display: flex;
@@ -245,6 +246,9 @@ const Topbar = styled.div`
   justify-content: space-between;
   padding: 0 1rem;
   background-color: #f8f7f7;
+  position: absolute;
+  top: 0;
+  left: 0;
 
   img {
     height: 75%;
@@ -254,11 +258,12 @@ const Topbar = styled.div`
 `;
 
 const Search = styled.div`
-  height: 63.11px;
+  height: 8vh;
   width: 100%;
   padding: 0.75rem 1rem;
   display: flex;
   align-items: center;
+  margin-top: 8vh;
 
   & > div {
     display: flex;

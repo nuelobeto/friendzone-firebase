@@ -201,6 +201,7 @@ export default ChatArea;
 const ChatAreaWrapper = styled.div<any>`
   flex: 1;
   height: 100%;
+  position: relative;
 
   @media (max-width: 700px) {
     width: 100%;
@@ -212,7 +213,7 @@ const ChatAreaWrapper = styled.div<any>`
 `;
 
 const Topbar = styled.div`
-  height: 63.11px;
+  height: 8vh;
   width: 100%;
   border-bottom: 2px solid #e7ebec;
   background-color: #f8f7f7;
@@ -221,6 +222,9 @@ const Topbar = styled.div`
   justify-content: space-between;
   padding: 0 1rem;
   gap: 1rem;
+  position: absolute;
+  top: 0;
+  left: 0;
 
   .friend {
     height: 100%;
@@ -254,6 +258,7 @@ const Messages = styled.div`
   flex-direction: column;
   gap: 0.5rem;
   overflow: auto;
+  margin-top: 8vh;
 
   .message {
     max-width: 90%;
@@ -283,13 +288,15 @@ const Messages = styled.div`
 `;
 
 const SendMessage = styled.form`
-  height: 63.11px;
+  height: 8vh;
   width: 100%;
   padding: 0.75rem 1rem;
   display: flex;
   align-items: center;
   background-color: #fff;
-  position: relative;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 
   .send-message {
     display: flex;
