@@ -49,7 +49,6 @@ export default ChatPage;
 
 const MainWrapper = styled.div`
   width: 100vw;
-  min-height: 100vh;
   height: 100vh;
   background-color: #d7dbdb;
   padding: 1rem 0;
