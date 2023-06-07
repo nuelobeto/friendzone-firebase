@@ -237,7 +237,7 @@ const SidebarWrapper = styled.div`
 `;
 
 const Topbar = styled.div`
-  height: 8vh;
+  height: 63.11px;
   width: 100%;
   border-bottom: 2px solid #e7ebec;
   display: flex;
