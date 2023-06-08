@@ -115,6 +115,7 @@ const ChatArea = ({ showChatArea, setShowChatArea }: ChatAreaProps) => {
     localStorage.removeItem("chat");
     setChat(null);
     setFriend(null);
+    setMessages([]);
   };
 
   useEffect(() => {
@@ -206,11 +207,10 @@ const ChatAreaWrapper = styled.div<any>`
   position: relative;
 
   @media (max-width: 700px) {
-    width: 100%;
-    display: ${(props) => (props.show ? "block" : "none")};
-    position: absolute;
-    top: 0;
-    left: 0;
+    min-width: 100%;
+    transform: ${(props) =>
+      props.show ? "translateX(-100%)" : "translateX(0)"};
+    transition: all 0.3s;
   }
 `;
 
@@ -227,12 +227,6 @@ const Topbar = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-
-  @media (max-width: 700px) {
-    position: fixed;
-    top: 0;
-    left: 0;
-  }
 
   .friend {
     height: 100%;
@@ -311,12 +305,6 @@ const SendMessage = styled.form`
   position: absolute;
   bottom: 0;
   left: 0;
-
-  @media (max-width: 700px) {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-  }
 
   .send-message {
     display: flex;

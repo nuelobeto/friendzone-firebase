@@ -33,13 +33,6 @@ const ChatPage = () => {
           showChatArea={showChatArea}
           setShowChatArea={setShowChatArea}
         />
-
-        {showChatArea && (
-          <ChatArea
-            showChatArea={showChatArea}
-            setShowChatArea={setShowChatArea}
-          />
-        )}
       </ChatLayout>
     </MainWrapper>
   );

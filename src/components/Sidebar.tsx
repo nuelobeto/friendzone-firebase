@@ -23,7 +23,11 @@ type SidebarProps = {
   viewportWidth: number;
 };
 
-const Sidebar = ({ setShowChatArea, viewportWidth }: SidebarProps) => {
+const Sidebar = ({
+  showChatArea,
+  setShowChatArea,
+  viewportWidth,
+}: SidebarProps) => {
   const { user, logout } = useAuth((state) => state);
   const { setChat } = useChat((state) => state);
   const [allUsers, setAllUsers] = useState<UserT[]>([]);
@@ -147,7 +151,7 @@ const Sidebar = ({ setShowChatArea, viewportWidth }: SidebarProps) => {
   }, []);
 
   return (
-    <SidebarWrapper>
+    <SidebarWrapper show={showChatArea}>
       <Topbar>
         <img src={user?.avatar} alt="" />
         <Button
@@ -221,7 +225,7 @@ const Sidebar = ({ setShowChatArea, viewportWidth }: SidebarProps) => {
 
 export default Sidebar;
 
-const SidebarWrapper = styled.div`
+const SidebarWrapper = styled.div<any>`
   width: 35%;
   height: 100%;
   border-right: 2px solid #e7ebec;
@@ -229,11 +233,13 @@ const SidebarWrapper = styled.div`
 
   @media (max-width: 900px) {
     width: 350px;
-    /* width: 100%; */
   }
 
   @media (max-width: 700px) {
-    width: 100%;
+    min-width: 100%;
+    transform: ${(props) =>
+      props.show ? "translateX(-100%)" : "translateX(0)"};
+    transition: all 0.3s;
   }
 `;
 
