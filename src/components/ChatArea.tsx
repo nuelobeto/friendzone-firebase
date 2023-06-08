@@ -269,6 +269,11 @@ const Messages = styled.div`
   overflow: auto;
   margin-top: 63.11px;
 
+  @media (max-width: 700px) {
+    height: calc(100% - 63.11px);
+    padding-bottom: calc(63.11px + 1rem);
+  }
+
   .message {
     max-width: 90%;
     width: fit-content;
