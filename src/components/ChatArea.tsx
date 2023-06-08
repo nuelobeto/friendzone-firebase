@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import useAuth from "../store/useAuth";
 import useChat from "../store/useChat";
@@ -37,7 +37,7 @@ const ChatArea = ({ showChatArea, setShowChatArea }: ChatAreaProps) => {
   const [text, setText] = useState("");
   const [file, setFile] = useState<any | null>(null);
   const { messages, setMessages } = useMessage((state) => state);
-  const messageContainer = document.querySelector(".message-container");
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const getFriend = () => {
     const friend = chat?.userA?.id === user?.id ? chat?.userB : chat?.userA;
@@ -50,7 +50,7 @@ const ChatArea = ({ showChatArea, setShowChatArea }: ChatAreaProps) => {
     event.preventDefault();
 
     if (user) {
-      const storageRef = ref(storage, `${user?.id}`);
+      const storageRef = ref(storage, `${file?.name}`);
       let url = null;
 
       if (file) {
@@ -134,18 +134,20 @@ const ChatArea = ({ showChatArea, setShowChatArea }: ChatAreaProps) => {
   }, []);
 
   useEffect(() => {
-    if (messageContainer) {
-      messageContainer.scrollTop = messageContainer?.scrollHeight;
+    if (containerRef.current) {
+      containerRef.current.scrollTop = containerRef.current.scrollHeight;
     }
-  }, [messages, messageContainer]);
+  }, [messages]);
 
   return (
     <ChatAreaWrapper show={showChatArea}>
       <Topbar>
-        <div className="friend">
-          <img src={friend?.avatar} alt="" />
-          <span>{friend?.username}</span>
-        </div>
+        {friend && (
+          <div className="friend">
+            <img src={friend?.avatar} alt="" />
+            <span>{friend?.username}</span>
+          </div>
+        )}
 
         {chat && (
           <Button
@@ -161,7 +163,7 @@ const ChatArea = ({ showChatArea, setShowChatArea }: ChatAreaProps) => {
         )}
       </Topbar>
 
-      <Messages className="message-container hide-scroll">
+      <Messages ref={containerRef} className="hide-scroll">
         {messages.map((message, index) => (
           <div
             className={`message ${friend?.id === message.senderId ? "" : "me"}`}
@@ -235,7 +237,8 @@ const Topbar = styled.div`
 
     img {
       height: 75%;
-      object-fit: contain;
+      aspect-ratio: 1/1;
+      object-fit: cover;
       border-radius: 50%;
     }
 
@@ -294,9 +297,9 @@ const SendMessage = styled.form`
   display: flex;
   align-items: center;
   background-color: #fff;
-  position: absolute;
-  bottom: 0;
-  left: 0;
+  position: relative;
+  /* bottom: 0;
+  left: 0; */
 
   .send-message {
     display: flex;
@@ -347,5 +350,6 @@ const SendMessage = styled.form`
     border-radius: 6px;
     font-size: 11px;
     color: #fff;
+    z-index: 10;
   }
 `;

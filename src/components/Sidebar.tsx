@@ -252,7 +252,8 @@ const Topbar = styled.div`
 
   img {
     height: 75%;
-    object-fit: contain;
+    aspect-ratio: 1/1;
+    object-fit: cover;
     border-radius: 50%;
   }
 `;
