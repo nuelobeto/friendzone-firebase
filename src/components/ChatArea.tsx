@@ -81,13 +81,12 @@ const ChatArea = ({ showChatArea, setShowChatArea }: ChatAreaProps) => {
         },
       };
 
-      // const messageRef = push(
-      //   child(dbRef(database), `messages/${chat?.chatId}`)
-      // );
-      // await set(messageRef, message);
+      const messageRef = push(
+        child(dbRef(database), `messages/${chat?.chatId}`)
+      );
+      await set(messageRef, message);
 
-      // set(dbRef(database, `chats/${chat?.chatId}`), chatUpdate);
-      console.log(chatUpdate);
+      set(dbRef(database, `chats/${chat?.chatId}`), chatUpdate);
 
       getMessages();
       setText("");
