@@ -87,6 +87,10 @@ const Sidebar = ({
   );
 
   const startChat = async (friendId: string) => {
+    if (friendId === user?.id) {
+      return;
+    }
+
     const chatId = `${user?.id}+${friendId}`;
     const reversedChatId = `${friendId}+${user?.id}`;
     const userB = await get(child(dbRef(database), `users/${friendId}`));
