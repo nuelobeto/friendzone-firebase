@@ -81,12 +81,13 @@ const ChatArea = ({ showChatArea, setShowChatArea }: ChatAreaProps) => {
         },
       };
 
-      const messageRef = push(
-        child(dbRef(database), `messages/${chat?.chatId}`)
-      );
-      await set(messageRef, message);
+      // const messageRef = push(
+      //   child(dbRef(database), `messages/${chat?.chatId}`)
+      // );
+      // await set(messageRef, message);
 
-      set(dbRef(database, `chats/${chat?.chatId}`), chatUpdate);
+      // set(dbRef(database, `chats/${chat?.chatId}`), chatUpdate);
+      console.log(chatUpdate);
 
       getMessages();
       setText("");
@@ -250,7 +251,7 @@ const Topbar = styled.div`
 
 const Messages = styled.div`
   width: 100%;
-  height: calc(100% - 126.22px);
+  height: calc(100% - 63.11px);
   background: linear-gradient(88.16deg, #d8d8d8 23.58%, #cccbcb 96.8%),
     url("/images/chat-bg.jpg");
   background-blend-mode: multiply;
@@ -297,7 +298,7 @@ const SendMessage = styled.form`
   display: flex;
   align-items: center;
   background-color: #fff;
-  position: sticky;
+  position: absolute;
   bottom: 0;
   left: 0;
 
