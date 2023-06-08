@@ -297,9 +297,9 @@ const SendMessage = styled.form`
   display: flex;
   align-items: center;
   background-color: #fff;
-  position: relative;
-  /* bottom: 0;
-  left: 0; */
+  position: sticky;
+  bottom: 0;
+  left: 0;
 
   .send-message {
     display: flex;
