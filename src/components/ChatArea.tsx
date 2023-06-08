@@ -163,41 +163,37 @@ const ChatArea = ({ showChatArea, setShowChatArea }: ChatAreaProps) => {
         )}
       </Topbar>
 
-      <MessagesWrapper>
-        <Messages ref={containerRef} className="hide-scroll">
-          {messages.map((message, index) => (
-            <div
-              className={`message ${
-                friend?.id === message.senderId ? "" : "me"
-              }`}
-              key={index}
-            >
-              {message.text && (
-                <p style={{ marginBottom: `${message.file && "5px"}` }}>
-                  {message.text}
-                </p>
-              )}
-              {message.file && <img src={message.file} />}
-            </div>
-          ))}
-        </Messages>
-
-        <SendMessage onSubmit={handleSendMessage}>
-          <div className="send-message">
-            <FileInput icon={<AttachIcon />} setFile={setFile} />
-            <input
-              type="text"
-              placeholder="Type a message..."
-              value={text}
-              onChange={(e) => setText(e.target.value)}
-            />
-            <button>
-              <SendIcon style={{ color: "#1ba0dd" }} />
-            </button>
+      <Messages ref={containerRef} className="hide-scroll">
+        {messages.map((message, index) => (
+          <div
+            className={`message ${friend?.id === message.senderId ? "" : "me"}`}
+            key={index}
+          >
+            {message.text && (
+              <p style={{ marginBottom: `${message.file && "5px"}` }}>
+                {message.text}
+              </p>
+            )}
+            {message.file && <img src={message.file} />}
           </div>
-          {file && <div className="file">{file.name}</div>}
-        </SendMessage>
-      </MessagesWrapper>
+        ))}
+      </Messages>
+
+      <SendMessage onSubmit={handleSendMessage}>
+        <div className="send-message">
+          <FileInput icon={<AttachIcon />} setFile={setFile} />
+          <input
+            type="text"
+            placeholder="Type a message..."
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+          />
+          <button>
+            <SendIcon style={{ color: "#1ba0dd" }} />
+          </button>
+        </div>
+        {file && <div className="file">{file.name}</div>}
+      </SendMessage>
     </ChatAreaWrapper>
   );
 };
@@ -232,6 +228,12 @@ const Topbar = styled.div`
   top: 0;
   left: 0;
 
+  @media (max-width: 700px) {
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
   .friend {
     height: 100%;
     display: flex;
@@ -252,14 +254,9 @@ const Topbar = styled.div`
   }
 `;
 
-const MessagesWrapper = styled.div`
-  height: calc(100% - 63.11px);
-  width: 100%;
-`;
-
 const Messages = styled.div`
   width: 100%;
-  height: calc(100% - 63.11px);
+  height: calc(100% - 126.22px);
   background: linear-gradient(88.16deg, #d8d8d8 23.58%, #cccbcb 96.8%),
     url("/images/chat-bg.jpg");
   background-blend-mode: multiply;
@@ -306,9 +303,15 @@ const SendMessage = styled.form`
   display: flex;
   align-items: center;
   background-color: #fff;
-  /* position: absolute;
+  position: absolute;
   bottom: 0;
-  left: 0; */
+  left: 0;
+
+  @media (max-width: 700px) {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+  }
 
   .send-message {
     display: flex;
