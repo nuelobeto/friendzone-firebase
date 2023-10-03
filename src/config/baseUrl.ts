@@ -1,1 +1,1 @@
-export const BASE_URL = "https://friendzon3.netlify.app/";
+export const BASE_URL = "https://friendzone-firebase.vercel.app/";
